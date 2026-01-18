@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор QR-кодов в PDF</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #qrcode-list {
+            margin-top: 20px;
+        }
+        .qrcode-item {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+        }
+        .delete-btn {
+            display: block;
+            margin-top: 5px;
+            color: red;
+            cursor: pointer;
+        }
+	button {
+		background-color: #008CBA;
+		color: white;
+		font-size: 16px;
+		text-decoration: none;
+		cursor: pointer;
+		padding: 10px;
+		width: 240px;
+		margin-top: 10px;
+		margin-right: 10px;
+		text-align:center;
+		border: none;
+		border-radius: 10px;
+	}
+	textarea {
+		background-color:#E9EFF6;
+		border-radius: 10px;
+		border-width: 0;
+		text-align: center;
+	}
+    </style>
+</head>
+<body>
+    <h1>Генератор QR-кодов в PDF</h1>
+    <textarea id="text-input" placeholder="Введите текст или URL (каждый в новой строке)" rows="5" cols="30"></textarea>
+    <br>
+    <button id="generate-btn">Сгенерировать QR-коды</button>
+    <button id="save-pdf-btn">Сохранить в PDF</button>
+    <div id="qrcode-list"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('#generate-btn').click(function() {
+                var inputTexts = $('#text-input').val().split('\n');
+                $('#qrcode-list').empty(); // Очистка предыдущих QR-кодов
+
+                inputTexts.forEach(function(inputText) {
+                    inputText = inputText.trim(); // Удаление лишних пробелов
+                    if (inputText) {
+                        var qrcodeItem = $('<div class="qrcode-item"></div>');
+                        qrcodeItem.qrcode(inputText);
+                        qrcodeItem.append('<p>' + inputText + '</p>');
+
+                        // Кнопка удаления
+                        var deleteBtn = $('<span class="delete-btn">Удалить</span>');
+                        deleteBtn.click(function() {
+                            qrcodeItem.remove();
+                        });
+                        qrcodeItem.append(deleteBtn);
+
+                        $('#qrcode-list').append(qrcodeItem);
+                    }
+                });
+            });
+
+            $('#save-pdf-btn').click(function() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                const pageWidth = doc.internal.pageSize.getWidth();
+                const pageHeight = doc.internal.pageSize.getHeight();
+                const qrCodeSize = 100; // Ширина и высота QR-кода
+
+                $('#qrcode-list .qrcode-item').each(function(index) {
+                    var qrCodeCanvas = $(this).find('canvas')[0];
+                    var imgData = qrCodeCanvas.toDataURL('image/png');
+
+                    // Отцентрируем QR-код
+                    const xPosition = (pageWidth - qrCodeSize) / 2; // Центрирование по горизонтали
+                    const yPosition = (pageHeight - qrCodeSize) / 2; // Центрирование по вертикали
+
+                    doc.addImage(imgData, 'PNG', xPosition, yPosition, qrCodeSize, qrCodeSize);
+
+                    // Текст под QR-кодом
+                    const text = $(this).find('p').text();
+                    const textWidth = doc.getTextWidth(text); // Получаем ширину текста
+                    const textXPosition = (pageWidth - textWidth) / 2; // Центрирование текста по горизонтали
+
+                    // Устанавливаем размер и жирность шрифта
+                    doc.setFontSize(16); // Размер шрифта
+                    doc.setFont("helvetica", "bold"); // Жирный шрифт
+                    doc.text(text, textXPosition, yPosition + qrCodeSize + 15); // Отступ для текста
+
+                    if (index < $('#qrcode-list .qrcode-item').length - 1) {
+                        doc.addPage(); // Добавляем новую страницу для следующего QR-кода
+                    }
+                });
+
+                doc.save('qrcodes.pdf');
+            });
+        });
+    </script>
+</body>
+</html>
+
