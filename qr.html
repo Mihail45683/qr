@@ -47,16 +47,24 @@
 		border-width: 0;
 		text-align: center;
 	}
+
+ .qr-container {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+ }
+
     </style>
 </head>
 <body>
+<div class="qr-container" >
     <h1>Генератор QR-кодов в PDF</h1>
     <textarea id="text-input" placeholder="Введите текст или URL (каждый в новой строке)" rows="5" cols="30"></textarea>
     <br>
     <button id="generate-btn">Сгенерировать QR-коды</button>
     <button id="save-pdf-btn">Сохранить в PDF</button>
     <div id="qrcode-list"></div>
-
+</div>
     <script>
         $(document).ready(function() {
             $('#generate-btn').click(function() {
