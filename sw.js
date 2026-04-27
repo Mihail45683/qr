@@ -3,7 +3,7 @@ const CACHE_NAME = 'v1_site_cache';
 //файлы для кэширования
 const ASSETS_TO_CACHE = [
   '/',
-  '/qr.html'
+  '/qr/qr.html'
 ];
 
 
