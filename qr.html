@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Генератор QR-кодов в PDF</title>
+    <link rel="manifest" href="manifest.json" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
@@ -48,7 +49,7 @@
 		text-align: center;
 	}
 
- 
+
     </style>
 </head>
 <body>
@@ -61,6 +62,20 @@
     <div id="qrcode-list"></div>
 
     <script>
+
+    if ('serviceWorker' in navigator) {navigator.serviceWorker.register('/sw.js');} //serviceWorker
+
+    if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(reg => console.log('SW зарегистрирован!', reg))
+        .catch(err => console.log('Ошибка регистрации SW:', err));
+    });
+  }
+
+
+
+
         $(document).ready(function() {
             $('#generate-btn').click(function() {
                 var inputTexts = $('#text-input').val().split('\n');
@@ -123,4 +138,3 @@
     </script>
 </body>
 </html>
-
