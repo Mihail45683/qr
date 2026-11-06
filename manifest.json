@@ -1,7 +1,7 @@
 {
   "name": "Генератор QR-кодов в PDF",
   "short_name": "QR в PDF",
-  "start_url": "/qr/qr.html",
+  "start_url": "/qr.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
