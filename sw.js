@@ -1,7 +1,7 @@
 const CACHE_NAME = 'pwa-html-v1';
 const assetsToCache = [
   '/',
-  '/index.html',
+  '/qr.html',
   '/manifest.json'
 ];
 
