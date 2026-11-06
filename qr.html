@@ -6,12 +6,19 @@
     <title>Генератор QR-кодов в PDF</title>
 
 
-		<link rel="manifest" href="manifest.json">
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js');
-  }
-</script>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+<!-- Стили для корректного отображения на iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="icon-192.png">
+
+
+
+
+
+
 
 
 
@@ -142,5 +149,17 @@
             });
         });
     </script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then((reg) => console.log('Service Worker успешно зарегистрирован!', reg))
+        .catch((err) => console.log('Ошибка регистрации Service Worker:', err));
+    });
+  }
+</script>
+
+
 </body>
 </html>
