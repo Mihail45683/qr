@@ -1,15 +1,21 @@
 {
-  "name": "Генератор QR-кодов в PDF",
   "short_name": "QR в PDF",
-  "start_url": "/qr.html",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "name": "Генератор QR-кодов в PDF",
   "icons": [
     {
-      "src": "https://pin.it/1NtsZF51H",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
-  ]
+  ],
+  "start_url": "/qr/qr.html",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "orientation": "portrait"
 }
