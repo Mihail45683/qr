@@ -1,0 +1,15 @@
+{
+  "name": "Генератор QR-кодов в PDF",
+  "short_name": "QR в PDF",
+  "start_url": "/qr/qr.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "https://flaticon.com",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
