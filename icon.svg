@@ -1,33 +1,33 @@
 <svg xmlns="http://w3.org" viewBox="0 0 512 512" width="100%" height="100%">
-  <!-- Фон приложения -->
-  <rect width="512" height="512" rx="110" fill="#4F46E5"/>
-  
-  <!-- Белая подложка-документ (PDF) -->
-  <path d="M140 120 C140 108.954 148.954 100 160 100 H300 L372 172 V392 C372 403.046 363.046 412 352 412 H160 C148.954 412 140 403.046 140 392 V120 Z" fill="#FFFFFF"/>
-  
-  <!-- Загнутый уголок листа -->
-  <path d="M300 100 V172 H372 Z" fill="#E2E8F0"/>
-  
-  <!-- Элементы QR-кода внутри листа (Сетка и маркеры) -->
-  <!-- Верхний левый маркер позиционирования -->
-  <rect x="176" y="200" width="44" height="44" rx="4" fill="#0F172A"/>
-  <rect x="188" y="212" width="20" height="20" rx="1" fill="#FFFFFF"/>
-  
-  <!-- Верхний правый маркер позиционирования -->
-  <rect x="256" y="200" width="44" height="44" rx="4" fill="#0F172A"/>
-  <rect x="268" y="212" width="20" height="20" rx="1" fill="#FFFFFF"/>
-  
-  <!-- Нижний левый маркер позиционирования -->
-  <rect x="176" y="280" width="44" height="44" rx="4" fill="#0F172A"/>
-  <rect x="188" y="292" width="20" height="20" rx="1" fill="#FFFFFF"/>
-  
-  <!-- Пиксели данных QR-кода -->
-  <rect x="256" y="280" width="16" height="16" rx="2" fill="#0F172A"/>
-  <rect x="284" y="280" width="16" height="16" rx="2" fill="#0F172A"/>
-  <rect x="256" y="308" width="16" height="16" rx="2" fill="#0F172A"/>
-  <rect x="284" y="308" width="16" height="16" rx="2" fill="#4F46E5"/>
-  <rect x="232" y="256" width="12" height="12" rx="2" fill="#0F172A"/>
-  
-  <!-- Красная полоска внизу (Ассоциация с PDF) -->
-  <path d="M160 380 H352 V396 C352 404.837 344.837 412 336 412 H176 C167.163 412 160 404.837 160 396 V380 Z" fill="#EF4444"/>
+  <!-- Определение градиентов и стилей -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F46E5" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Задний фон (Занимает 100% для Maskable-версии) -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+
+  <!-- Декоративный внутренний блик/градиент -->
+  <rect width="512" height="512" rx="112" fill="url(#glowGrad)" pointer-events="none" />
+
+  <!-- Безопасная зона (Центральные 80% — графическое ядро приложения) -->
+  <g transform="translate(56, 56)">
+    <!-- Внутренний круг-подложка для контраста логотипа -->
+    <circle cx="200" cy="200" r="140" fill="#FFFFFF" opacity="0.15" />
+    
+    <!-- Абстрактный современный логотип (Молния + Слои) -->
+    <path d="M220 70 L110 230 L190 230 L180 330 L290 170 L210 170 Z" 
+          fill="#FFFFFF" 
+          stroke="#FFFFFF" 
+          stroke-width="8" 
+          stroke-linejoin="round" />
+  </g>
 </svg>
+ 
