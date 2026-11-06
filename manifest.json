@@ -1,21 +1,24 @@
 {
   "short_name": "QR в PDF",
   "name": "Генератор QR-кодов в PDF",
+  "description": "Удобный инструмент для создания QR-кодов и их сохранения в формате PDF",
+  "start_url": "/qr/qr.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#4F46E5",
   "icons": [
     {
-      "src": "icon-192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
     },
     {
-      "src": "icon-512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "icon-maskable.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "maskable"
     }
-  ],
-  "start_url": "/qr/qr.html",
-  "background_color": "#ffffff",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "orientation": "portrait"
+  ]
 }
