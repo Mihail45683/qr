@@ -4,7 +4,7 @@
   "short_name": "QR",
   "description": "Генератор QR",
   "lang": "ru-RU",
-  "start_url": "/",
+  "start_url": "https://mihail45683.github.io/qr/qr.html ",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#ffffff",
