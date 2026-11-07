@@ -4,8 +4,8 @@ const CACHE_NAME = 'qr-pdf-v2';
 const STATIC_ASSETS = [
   '/qr/qr.html',
   '/qr/manifest.json',
-  '/qr/icon.svg',
-  '/qr/icon-maskable.svg'
+  '/qr/jigdoicon.png',
+  '/qr/website_9373061.png'
   // Если у вас появятся файлы styles.css или script.js, добавьте их пути сюда
 ];
 
