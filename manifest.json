@@ -1,27 +1,22 @@
 {
-  "id": "/?utm_source=pwa",
-  "name": "Генератор QR",
-  "short_name": "QR",
-  "description": "Генератор QR",
-  "lang": "ru-RU",
-  "start_url": "https://mihail45683.github.io/qr/qr.html ",
+  "name": "Генератор QR-кодов в PDF",
+  "short_name": "QR в PDF",
+  "description": "Генерация QR-кодов и сохранение в PDF",
+  "start_url": "./qr.html",
+  "scope": "./",
   "display": "standalone",
-  "orientation": "portrait",
   "background_color": "#ffffff",
-  "theme_color": "#317EFB",
+  "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "/jigdoicon.png",
+      "src": "./icon-192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
+      "type": "image/png"
     },
     {
-      "src": "/website_9373061.png",
+      "src": "./icon-512.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
+      "type": "image/png"
     }
   ]
-  
 }
